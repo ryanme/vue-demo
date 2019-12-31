@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    /* background-color:#002B36; */
+    background-color:darkslategray;
+    color:white;
+}
+
+p, ul, ol, li{
+    margin: 0;
+}
+#app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+}
+
+/*去除router-link生成的a标签的默认下划线*/
+#header {
+    background-color: #2F4056;
+    text-align: center;
+    line-height: 60px;
+    margin: 0;
+}
+
+#header li, #left_menu li {
+    line-height: 60px;
+}
+
+#header li {
+    display:inline-block;
+    font-size: 20px;
+    padding: 5px;
+}
+
+#left_menu {
+    width: 120px;
+    line-height: 30px;
+    display: block;
+    float: left;
+    margin-top: 0;
+    /* background-color: darkslategray; */
+    /* background-color:#002B36; */
+    background-color:#4f4f4f;
+    min-height: calc(100vh - 30px);
+}
+
+#left_menu li {
+    margin: auto;
+    padding-top: 20px;
+    padding-left: 20px;
+    color: springgreen;
+    font-size: 10px;
+    text-align: left;
+}
+
+#left_menu ul {
+    padding-left: 0;
+}
+
+.top_menu, .left_menu {
+    flex-direction: row;
+    text-decoration: none;
+}
+.top_menu  {
+    color: ghostwhite;
+}
+
+ul.menu {
+    margin-left: 200px;
+    text-align: left;
+}
+
+#body {
+    margin: 0;
+    padding-top: 0;
+}
+
+#content {
+    padding-left: 100px;
+}
+
+#header {
+    display:table;
+    width:100%;
+}
+
+#menu_1,#menu_2 {
+    display:table-cell;
+}
+#menu_1 {
+    float: left;
+}
+
+#menu_2 {
+    margin-right: 50px;
+    padding: 5px;
+    float: right;
+}
+
+a:-webkit-any-link {
+    color: whitesmoke;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+input.special {
+    height: 30px;
+    width: 100px;
+    color: white;
+    background-color:slateblue;
+    text-align: center;
+    margin-left: 100px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+}
+
+img.logo {
+    float: left;
+    width: 120px;
+    height: 100%;
+    margin-left: -200px;
+}

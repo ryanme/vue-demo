@@ -5,8 +5,9 @@
 body{
     margin: 0;
     /* background-color:#002B36; */
-    background-color:darkslategray;
-    color:white;
+    /*background-color:darkslategray;*/
+    background-color: #232121;
+    /*color:white;*/
 }
 
 p, ul, ol, li{
@@ -117,7 +118,8 @@ input.special {
     margin-left: 100px;
     margin-bottom: 10px;
     margin-top: 10px;
-
+    font-weight: bold;
+    border: 1px solid gray;
 }
 
 img.logo {

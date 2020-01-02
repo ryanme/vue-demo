@@ -13,16 +13,6 @@ export default new Router({
             component: () => import('@/components/Index/Index')
         },
         {
-            path: '/managegroup',
-            name: 'ManageGroup',
-            component: () => import('@/components/GroupManage/ManageGroup')
-        },
-        {
-            path: '/square',
-            name: 'Square',
-            component: () => import('@/components/Square/Square')
-        },
-        {
             path: '/login',
             name: 'Login',
             component: () => import('@/components/Login/Login')
@@ -31,6 +21,30 @@ export default new Router({
             path: '/logout',
             name: 'Logout',
             component: () => import('@/components/Login/Logout')
+        },
+        {
+            path: '/managegroup',
+            name: 'ManageGroup',
+            meta: {
+                title: '团队管理'
+            },
+            component: () => import('@/components/GroupManage/ManageGroup'),
+            redirect: "managegroup/grouplist",
+            children: [
+                {
+                    path: 'grouplist',
+                    name: 'GroupList',
+                    component: () => import('@/components/GroupManage/GroupList'),
+                    meta: {
+                        title: '团队列表',
+                    }
+                }
+            ]
+        },
+        {
+            path: '/square',
+            name: 'Square',
+            component: () => import('@/components/Square/Square')
         },
         {
             path: '/managemember',
@@ -60,7 +74,8 @@ export default new Router({
                 {
                     path: 'userregister',
                     name: 'UserRegister',
-                    component: () => import('@/components/UserMember/UserRegister'),
+                    // component: () => import('@/components/UserMember/UserRegister'),
+                    component: () => import('@/components/UserMember/UserRegisterEle'),
                     meta: {
                         title: '用户新增',
                     },

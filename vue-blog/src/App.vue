@@ -1,6 +1,5 @@
 <template>
     <div id="app">
-     
      <div id="header">
         <div id="menu_1">
             <ul class="menu">
@@ -60,8 +59,10 @@
         name: 'App',
         data() {
             return {isLogin: false}
-        }
+        },
+
     }
+
 </script>
 
 <style>

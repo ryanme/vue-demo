@@ -1,12 +1,8 @@
 <template>
 
   <div>
-<ul id="breadcrumbs-one">
-    <li><router-link to="/">主页</router-link></li>
-    <li><router-link to="/managemember">用户管理</router-link></li>
-    <li><a class="current">用户详情</a></li>
-</ul>
 
+      <breadnavigation/>
 
         <div v-if="user_detail" class="user_detail">
 
@@ -27,7 +23,9 @@
 </template>
 
 <script>
-    import axios from 'axios'
+    import axios from 'axios';
+    import breadnavigation from "../../Biz/breadnavigation.vue";
+
 
     export default {
         name: "UserDetail",
@@ -64,7 +62,10 @@
             const sex_arrary = {"0": "男", "1": "女"}
             return sex_arrary[value]
         }
-    }      
+    },
+        components: {
+            breadnavigation
+        }
     }
 </script>
 

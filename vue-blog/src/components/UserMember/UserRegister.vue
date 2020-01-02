@@ -1,11 +1,9 @@
 <template>
  <div>
-<ul id="breadcrumbs-one">
-    <li><router-link to="/">主页</router-link></li>
-    <li><router-link to="/managemember">用户管理</router-link></li>
-    <li><a class="current">个人信息填写</a></li>
-</ul>
-        <div class="userInfo">
+
+     <breadnavigation/>
+
+     <div class="userInfo">
 
         <form action="null">
                 <b>个人信息填写</b>
@@ -74,7 +72,9 @@
 </template>
 
 <script>
-    import axios from 'axios'
+    import axios from 'axios';
+    import breadnavigation from "../../Biz/breadnavigation.vue";
+
 
     export default {
         name: 'UserRegister',
@@ -166,6 +166,10 @@
             }
         
         },
+        components: {
+            breadnavigation
+        }
+
     }
 </script>
 

@@ -80,30 +80,11 @@ export default new Router({
                 {
                     path: 'userregister',
                     name: 'UserRegister',
-                    // component: () => import('@/components/UserMember/UserRegister'),
-                    component: () => import('@/components/UserMember/UserRegisterEle'),
+                    component: () => import('@/components/UserMember/UserRegister'),
                     meta: {
                         title: '用户新增',
                     },
                 },]
         },
-        // {
-        //     path: '/userdetail/:userId',
-        //     name: 'UserDetail',
-        //     meta: {
-        //         parent_title: '用户管理',
-        //         title: '用户详情',
-        //     },
-        //     component: () => import('@/components/UserMember/UserDetail')
-        // },
-        // {
-        //     path: '/userregister',
-        //     name: 'UserRegister',
-        //     meta: {
-        //         parent_title: '用户管理',
-        //         title: '用户新增',
-        //     },
-        //     component: () => import('@/components/UserMember/UserRegister')
-        // },
     ]
 })

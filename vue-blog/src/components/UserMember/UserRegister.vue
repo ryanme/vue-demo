@@ -1,213 +1,179 @@
 <template>
- <div>
+<div>
+    <breadnavigation/>
 
-     <breadnavigation/>
+    <el-card class="box-card">
+        <div slot="header" class="clearfix">
+            <span>用户新增</span>
+        </div>
+        <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
 
-     <div class="userInfo">
+            <el-form-item label="姓名" prop="name"  style="width: 300px; height: 50px">
+                <el-input v-model="ruleForm.name"/>
+            </el-form-item>
 
-        <form action="null">
-                <b>个人信息填写</b>
-               <p>
-            <label for="name" class="miaoshu">姓    名：</label>
-            <input type="text" id="username" maxlength="10" class="input" v-model="userinfo.username">  
-            <label class="mustChoice">*</label>
-            <label for="mssage1" v-if="errormessage.message1" class="errorMessage">{{ errormessage.message1 }}</label>
-           </p>
-           <p>
-            <label for="sex" class="miaoshu">性     别：</label>
-            <select name="sex" id="sex" v-model="userinfo.sex">
-                    <option value="--">--</option>
-                    <option value="man">男</option>
-                    <option value="woman">女</option>
-            </select>
-            <label class="mustChoice"> *</label>
-            <label for="mssage2" v-if="errormessage.message2" class="errorMessage">{{ errormessage.message2 }}</label>
-           </p>
-            
-            <p>
-                <label for="birthday" class="miaoshu">出 生 日 期：</label>
-                <input type="date" value="" id="birthday" v-model="userinfo.birthday" />
-            </p>
-            
-            <p>
-                <label for="phonenumber" class="miaoshu">手  机  号：</label>
-                <input type="number" id="phonenumber" class="input" v-model="userinfo.phonenumber">
-                <label class="mustChoice">*</label>
-                <label for="mssage3" v-if="errormessage.message3" class="errorMessage">{{ errormessage.message3 }}</label>
+            <el-form-item label="性别" prop="sex" style="width: 300px; height: 50px">
+                <el-select v-model="ruleForm.sex" placeholder="请选择性别">
+                    <el-option label="男" value="man"/>
+                    <el-option label="女" value="woman"/>
+                </el-select>
+            </el-form-item>
 
-            </p>
+            <el-form-item label="手机号" prop="phonenumber"  style="width: 300px; height: 50px">
+                <el-input v-model="ruleForm.phonenumber"/>
+            </el-form-item>
 
-            <p>
-                <label for="interest" class="miaoshu">兴 趣 爱 好：</label>
-                <input name="interest" type="checkbox" value="sleep" class="interest" />睡觉 
-                <input name="interest" type="checkbox" value="sport" class="interest" />运动
-                <input name="interest" type="checkbox" value="eat" class="interest" />吃
-                <input name="interest" type="checkbox" value="game" class="interest" />游戏
-            </p>
+            <el-form-item label="邮箱" prop="email"  style="width: 300px; height: 50px">
+                <el-input v-model="ruleForm.email"/>
+            </el-form-item>
 
-            <p>
-                <label for="email" class="miaoshu">邮 箱：</label>
-                <input type="email" id="email" class="input" maxlength="20" v-model="userinfo.email">
-                
-                <label class="mustChoice">*</label>
-                <label for="mssage4" v-if="errormessage.message4" class="errorMessage">{{ errormessage.message4 }}</label>
+            <el-form-item label="出生日期"  style="width: 300px; height: 50px">
+                <el-form-item prop="birthday">
+                    <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.birthday"  style="width: 200px; height: 50px"/>
+                </el-form-item>
+            </el-form-item>
 
-            </p>
+            <el-form-item label="兴趣爱好" prop="interest"  style="width: 500px; height: 50px;">
+                <el-checkbox-group v-model="ruleForm.interest" style="float: left">
+                    <el-checkbox label="睡觉" name="interest"/>
+                    <el-checkbox label="看书" name="interest"/>
+                    <el-checkbox label="打球" name="interest"/>
+                </el-checkbox-group>
+            </el-form-item>
 
-            <p>
-                <label for="intro" class="miaoshu">自 我 介 绍：</label>
-                <textarea name="intro" cols="100" rows="10" id="intro" maxlength="100" v-model="userinfo.intro"/>
-            </p>
+            <el-form-item label="自我介绍" prop="intro"  style="width: 450px; height: 100px">
+                <el-input type="text" v-model="ruleForm.intro" maxlength="50" placeholder="请输入内容" show-word-limit/>
+            </el-form-item>
 
-            <p>
-                <input type="button" id="reset" value="重置" @click="clear()" class="special"/>
-                <input type="button" id="register" value="提交" @click="submit()" class="special"/>
-                <input type="button" value="返回" @click="go_userlist_page()" class="special"/>
+            <el-form-item  style=" width: 400px; height: 50px">
+                <el-button type="primary" @click="submitForm('ruleForm')">创建用户</el-button>
+                <el-button @click="resetForm('ruleForm')">重置信息</el-button>
+                <el-button @click="returnUserList('ruleForm')">返回</el-button>
+            </el-form-item>
+        </el-form>
+    </el-card>
 
-                <label v-if="sucessMesage" class="successmessage">{{ sucessMesage }}</label>
-            </p>
-        </form>
-    </div>
- </div>
+</div>
 </template>
 
 <script>
-    import axios from 'axios';
     import breadnavigation from "../../Biz/breadnavigation.vue";
-
-
+    import axios from "axios";
     export default {
-        name: 'UserRegister',
+        name: "UserRegisterEle",
         data() {
-            return { userinfo: {}, errormessage: {message1: null, message2: null, message3: null, message4: null}, sucessMesage:null,
+            return {
+                ruleForm: {
+                    name: '',
+                    sex: '',
+                    phonenumber: '',
+                    email: '',
+                    birthday: '',
+                    interest: [],
+                    intro: ''
+                },
+
+                rules: {
+                    name: [
+                        { required: true, message: '请输入名字', trigger: 'blur' },
+                        { min: 2, max: 5, message: '长度在 2 到 5 个字符', trigger: 'blur' }
+                    ],
+                    sex: [
+                        { required: true, message: '请选择性别', trigger: 'change' }
+                    ],
+                    phonenumber: [
+                        { required: true, message: '请输入手机号', trigger: 'change' },
+                        // { min: 11, max:11, message: '请输入11位手机号', trigger: 'blur'},
+                        { pattern: /^1[34578]\d{9}$/, message: '请输入正确的手机号', trigger: 'change' }
+                    ],
+                    email: [
+                        { type: 'email', required: true, message: '请输入邮箱号', trigger: 'blur' },
+                        { pattern: /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/, message: '请输入正确的邮箱号', trigger: 'change'}
+                    ],
+                    birthday: [
+                        { required: false, message: '请选择日期', trigger: 'change' }
+                    ],
+                    interest: [
+                        { type: 'array', required: false, message: '请至少选择一个兴趣爱好', trigger: 'change' }
+                    ],
+                    intro: [
+                        { required: false, message: '请填写自我介绍', trigger: 'blur' }
+                    ]
+                }
             }
         },
 
         methods: {
-            
-            check_data(){
-                /*每次检测前清除上一次的essage*/ 
-                this.sucessMesage=null;
-                this.errormessage={}
-
-                if (!this.userinfo.username){
-                    this.errormessage.message1 = "姓名必填!";
-                }
-                if (this.userinfo.sex !== "man" && this.userinfo.sex !== "woman"){
-                    this.errormessage.message2 = "性别必填";
-                }
-                if (!this.userinfo.phonenumber){
-                    this.errormessage.message3 = "手机号必填！";
-                }
-                else if (!/^((1[3,5,8][0-9])|(14[5,7])|(17[0,6,7,8])|(19[7]))\d{8}$/.test(this.userinfo.phonenumber)){
-                    this.errormessage.message3 = "请输入正确的手机号";
-                }
-                if (!this.userinfo.email){
-                    this.errormessage.message4 = "邮箱号必填!";
-                }
-                else if  (!/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(this.userinfo.email)) {
-                    this.errormessage.message4 = "邮箱格式错误";
-                }
-                // else if (this.userinfo.email.indexOf("@") !=-1 && this.userinfo.email.indexOf(".")!=-1){
-                //     const lists_1 = this.userinfo.email.split("@")
-                //     const lists_2 = this.userinfo.email.split(".")
-
-                //     const end_symbol_1 = lists_1[lists_1.length-1]
-                //     const end_symbol_2 = lists_2[lists_2.length-1]
-                //     if (end_symbol_1 && end_symbol_2) {
-                //          if (end_symbol_1!="@" && end_symbol_1!="."){
-                //             this.errormessage.message4 = null;
-                //         }
-                //     }
-                // }
-
-                for (var key in this.errormessage) {
-　　                var item = this.errormessage[key];
-　　                if (item) return false
-                }   
-                return true;
-
-            },
-
-            submit(){
-                if (this.check_data()){
-                     
-                    const post_data2={
-                        "user_name":this.userinfo.username,
-                        "sex":this.userinfo.sex,
-                        "birthday":this.userinfo.birthday,
-                        "email":this.userinfo.email,
-                        "interest":this.userinfo.interest,
-                        "cell_phone":this.userinfo.phonenumber,
-                        "introduction":this.userinfo.intro
+            submitForm(formName){
+                this.$refs[formName].validate((valid) => {
+                    if (valid){
+                        const post_data2={
+                            "user_name":this.ruleForm.name,
+                            "sex":1,
+                            "birthday":this.ruleForm.birthday,
+                            "email":this.ruleForm.email,
+                            "interest":this.ruleForm.interest,
+                            "cell_phone":this.ruleForm.phonenumber,
+                            "introduction":this.ruleForm.intro
                         };
-                    axios.post('/sjfapi/userregister/', post_data2)
-                        .then((response) => {
-                            if (response.data.code===200){
-                            this.sucessMesage = "新增成功"
-                            console.log(response.data);
-                        }else{
-                            alert(response.data);
-                            console.error(response.data)
-                        }  
-                    })
-                        .catch((error) => {
-                            console.error(error);
-                    });
-                }
+                        console.log(post_data2);
+                        axios.post('/sjfapi/userregister/', post_data2)
+                            .then((response) => {
+                                if (response.data.code===200){
+                                    this.$message.success('新增用户成功！')
+                                }else{
+                                    this.$message.error('新增用户失败！'+response.data.message)
+                                }
+                            })
+                            .catch((error) => {
+                                this.$message.error(error)
+                            });
+                        this.$message.success('新增用户成功！')
+                    }else {
+                        this.$message.error('参数校验有误')
+                    }
+                })
             },
-
-            clear() {
-                this.userinfo = {}
+            resetForm(formName){
+                this.$refs[formName].resetFields();
             },
-
-            go_userlist_page(){
-                this.$router.push({ name: 'ManageMember'});
+            returnUserList(){
+                this.$router.push({name: "ManageMember"})
             }
-        
         },
+
         components: {
             breadnavigation
         }
-
     }
 </script>
 
 <style scoped>
+    .demo-ruleForm {
+    }
+    .clearfix:before,
+    .clearfix:after {
+        display: table;
+        content: "";
+    }
+    .clearfix:after {
+        clear: both
+    }
 
-.userInfo {
-    text-align: left;
-    font-size: 15px;
-    padding: 5px;
-    margin-left: 300px;
-    /* width: 35%; */
-}
+    .box-card {
+        width: 500px;
+        margin-left: 300px;
+        margin-top: 100px;
+        size: 24px;
+        background-color: #232121;
+        border: 0;
+    }
 
+    .box-card p,  .box-card{
+        padding: 5px;
+        color: white;
+        font-weight: 500;
+        font-size: 16px;
+    }
 
-label.miaoshu {
-    text-align: right;
-    width: 150px;
-    display: inline-table;
-    padding: 5px;
-}
-
-.mustChoice, .errorMessage {
-    padding-left: 5px;
-    color: red;
-}
-
-.successmessage {
-    color: green;
-    padding-left: 10px;
-}
-
-#intro {
-    width: 300px;
-}
-
-input.input, #sex, #birthday {
-    margin: 5px;
-    width: 200px;
-    height: 30px;
-}
 </style>

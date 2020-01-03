@@ -26,20 +26,6 @@
         </el-card>
     <input type="button" value="返回" @click="go_userlist_page()" class="special"/>
 
-
-    <!--        <div v-if="user_detail" class="user_detail">-->
-
-<!--        <p>姓名： {{user_detail.user_name}}</p>-->
-<!--        <p>性别： {{user_detail.sex|sex_show}}</p>-->
-<!--        <p>生日： {{user_detail.birthday}}</p>-->
-<!--        <p>邮箱： {{user_detail.email}}</p>-->
-<!--        <p>爱好： {{user_detail.interest}}</p>-->
-<!--        <p>电话： {{user_detail.cell_phone}}</p>-->
-<!--        <p>介绍： {{user_detail.introduction}}</p>-->
-
-<!--        </div>-->
-
-
   </div>
 </template>
 
@@ -100,19 +86,6 @@
         text-align: left;
         /*float: center;*/
     }
-    /*ul,ol,li{list-style:none;}*/
-
-/*    input.special {*/
-/*    height: 30px;*/
-/*    width: 100px;*/
-/*    color: white;*/
-/*    background-color:slateblue;*/
-/*    text-align: center;*/
-/*    float: left;*/
-/*    margin-left: 300px;*/
-/*    margin-bottom: 10px;*/
-/*    margin-top: 10px;*/
-/*}*/
 
         input.special{
           margin-left: -500px;

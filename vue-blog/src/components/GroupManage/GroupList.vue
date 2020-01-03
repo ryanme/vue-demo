@@ -21,10 +21,5 @@
         components: {
             breadnavigation
         }
-        // computed: {
-        //     updateTime() {
-        //         this.message2 = '现在是 ' + new Date().toLocaleString()
-        //     }
-        // },
     }
 </script>

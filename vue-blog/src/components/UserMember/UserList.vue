@@ -117,59 +117,6 @@
             </el-pagination>
         </div>
 
-<!--        <div v-if="userData">-->
-<!--            <table border="1">-->
-<!--                <tr>-->
-<!--                    <th>ID</th>-->
-<!--                    <th>名字</th>-->
-<!--                    <th>性别</th>-->
-<!--                    <th>生日</th>-->
-<!--                    <th>邮箱</th>-->
-<!--                    <th>兴趣爱好</th>-->
-<!--                    <th>电话</th>-->
-<!--                    <th>介绍</th>-->
-<!--                </tr>-->
-
-<!--                <tr v-for="user in userData" :key="user.id">-->
-
-<!--                    <td>-->
-<!--                        <p>{{ user.user_id }}</p>-->
-<!--                    </td>-->
-
-<!--                    <td>-->
-<!--                        <p @click="onClickUserId(user)" class="hrefclass"> {{ user.user_name }}</p>-->
-<!--                    </td>-->
-
-<!--                    <td>-->
-<!--                        &lt;!&ndash; <p>{{ user.sex == 0 ? '女士': '先生' }}</p> &ndash;&gt;-->
-<!--                        <p>{{ user.sex| sex_show}}</p>-->
-
-<!--                    </td>-->
-
-<!--                    <td>-->
-<!--                        <p>{{ user.birthday }}</p>-->
-<!--                    </td>-->
-
-<!--                    <td>-->
-<!--                        <p>{{ user.email }}</p>-->
-<!--                    </td>-->
-
-<!--                    <td>-->
-<!--                        <p>{{ user.interest }}</p>-->
-<!--                    </td>-->
-
-<!--                    <td>-->
-<!--                        <p>{{ user.cell_phone }}</p>-->
-<!--                    </td>-->
-
-<!--                    <td>-->
-<!--                        <p>{{ user.introduction }}</p>-->
-<!--                    </td>-->
-<!--                </tr>-->
-
-<!--            </table>-->
-<!--        </div>-->
-
     </div>
 </template>
 
@@ -194,12 +141,6 @@
         },
         methods: {
             getUserList(){
-                // if(!this.keyword){
-                //     const params = {"page": this.currentPage, "size": this.pagesize}
-                // }
-                // else {
-                //     const params = {"page": this.currentPage, "size": this.pagesize, "params": this.keyword}
-                // }
                 if(this.keyword){
                      this.user_url = "/sjfapi/usersearch/";
                      this.param = {"params": {"page": this.currentPage, "size": this.pagesize, "params": this.keyword}}

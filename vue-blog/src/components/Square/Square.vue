@@ -1,10 +1,8 @@
 <template>
 
     <div>
-    <ul id="breadcrumbs-one">
-    <li><router-link to="/">主页</router-link></li>
-    <li><a class="current">大厅</a></li>
-    </ul>
+        <breadnavigation/>
+
         <div class="main_content">
             <ol>
                 <li v-for="todo in todos" :key="todo.text">
@@ -18,6 +16,7 @@
 
 <script>
     import axios from 'axios'
+    import breadnavigation from "../../Biz/breadnavigation.vue";
 
     export default {
         name: "Square",
@@ -31,6 +30,9 @@
                 ]
             }
         },
+        components:{
+            breadnavigation
+        }
     }
 </script>
 <style  scoped>

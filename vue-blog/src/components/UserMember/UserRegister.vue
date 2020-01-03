@@ -56,7 +56,7 @@
 
             <p>
                 <label for="intro" class="miaoshu">自 我 介 绍：</label>
-                <textarea name="intro" cols="100" rows="10" id="intro" maxlength="100" v-model="userinfo.intro"></textarea>
+                <textarea name="intro" cols="100" rows="10" id="intro" maxlength="100" v-model="userinfo.intro"/>
             </p>
 
             <p>
@@ -93,7 +93,7 @@
                 if (!this.userinfo.username){
                     this.errormessage.message1 = "姓名必填!";
                 }
-                if (this.userinfo.sex != "man" && this.userinfo.sex != "woman"){
+                if (this.userinfo.sex !== "man" && this.userinfo.sex !== "woman"){
                     this.errormessage.message2 = "性别必填";
                 }
                 if (!this.userinfo.phonenumber){
@@ -140,7 +140,7 @@
                         "interest":this.userinfo.interest,
                         "cell_phone":this.userinfo.phonenumber,
                         "introduction":this.userinfo.intro
-                        }
+                        };
                     axios.post('/sjfapi/userregister/', post_data2)
                         .then((response) => {
                             if (response.data.code===200){

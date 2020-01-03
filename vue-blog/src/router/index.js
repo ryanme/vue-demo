@@ -10,7 +10,10 @@ export default new Router({
         {
             path: '/',
             name: 'Index',
-            component: () => import('@/components/Index/Index')
+            component: () => import('@/components/Index/Index'),
+            meta: {
+                title: '首页'
+            },
         },
         {
             path: '/login',
@@ -44,7 +47,10 @@ export default new Router({
         {
             path: '/square',
             name: 'Square',
-            component: () => import('@/components/Square/Square')
+            component: () => import('@/components/Square/Square'),
+            meta: {
+                title: '待我解决'
+            },
         },
         {
             path: '/managemember',

@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d2109fd"],{b94d:function(n,e,t){"use strict";t.r(e);var u=function(){var n=this,e=n.$createElement,t=n._self._c||e;return t("div")},c=[],o={name:"Logout"},a=o,d=t("2877"),r=Object(d["a"])(a,u,c,!1,null,"d52f9410",null);e["default"]=r.exports}}]);
+//# sourceMappingURL=chunk-2d2109fd.1127bafe.js.map

@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    /* background-color:#002B36; */
+    /*background-color:darkslategray;*/
+    background-color: black;
+    color:whitesmoke;
+}
+
+p, ul, ol, li{
+    margin: 0;
+}
+#app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+}
+
+/*去除router-link生成的a标签的默认下划线*/
+#header {
+    background-color: #1F1C1E;
+    text-align: center;
+    margin: 0;
+}
+
+#header li, #left_menu li {
+    line-height: 60px;
+}
+
+#header li {
+    display:inline-block;
+    font-weight: 300;
+    font-size: larger;
+}
+
+#left_menu {
+    width: 120px;
+    line-height: 30px;
+    display: block;
+    float: left;
+    margin-top: 0;
+    /* background-color: darkslategray; */
+    /* background-color:#002B36; */
+    background-color:#1F1C1E;
+    min-height: calc(100vh - 30px);
+}
+
+#left_menu_li {
+    margin: auto;
+    padding-top: 20px;
+    padding-left: 20px;
+    font-size: medium;
+    font-weight: 600;
+    color: springgreen;
+    /*font-size: 10px;*/
+    text-align: left;
+}
+
+#left_menu ul {
+    padding-left: 0;
+}
+
+#body {
+    margin: 0;
+    padding-top: 0;
+}
+
+#content {
+    padding: 30px 150px;
+    /*width: 100%;*/
+}
+
+#header {
+    display:table;
+    width:100%;
+}
+
+#menu_1,#menu_2 {
+   display:table-cell;
+}
+
+#menu_1 {
+    float: left;
+    margin-left: 50px;
+    height: 80px;
+}
+
+#menu_1 p {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 900;
+    margin-top: 20px;
+    /*text-align: center;*/
+    /*padding: 5px;*/
+    color: tomato;
+    float: left;
+}
+
+.top_menu {
+    float: left;
+    margin-top: 10px;
+    margin-left: 100px;
+    padding: 0;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.top_menu li{
+    padding-left: 25px;
+    /*padding: 0;*/
+
+}
+
+.top_menu li a {
+    color: brown;
+}
+
+#menu_2 {
+   margin-right: 50px;
+   padding: 5px;
+   float: right;
+}
+
+a:-webkit-any-link {
+    color: whitesmoke;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+input.special {
+    height: 42px;
+    width: 100px;
+    color: white;
+    background-color: #2F4056;
+    text-align: center;
+    margin-left: 100px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    border: 0 solid gray;
+}
+
+img.logo {
+    float: left;
+    width: 100px;
+    height: 80px;
+    margin-left: 0;
+    box-shadow: rgba(0, 0, 0, 0.15) 6px 6px 6px;
+    /*height: 280px;*/
+    /*position: absolute;*/
+    /*top: 0px;*/
+    display: inline-block;
+    border-radius: 8px;
+    background: rgb(255, 255, 255);
+    overflow: hidden;
+    transition: transform 0.2s linear 0s;
+}
+
+/*去除点击后出现的边框*/
+* {
+    outline:none
+}
+/*.search_bar {*/
+
+/*    width: 250px;*/
+/*    border-radius: 42px;*/
+/*    border: 2px solid #324B4E;*/
+/*    background: #F9F0DA;*/
+/*    transition: .3s linear;*/
+/*    height: 42px;*/
+/*    padding-left: 13px;*/
+/*    outline: none;*/
+/*    box-sizing: border-box;*/
+/*}*/
+/*.search_button {*/
+/*    background: none;*/
+/*    top: -2px;*/
+/*    right: 20px;*/
+/*    height: 42px;*/
+/*    width: 42px;*/
+/*    cursor: pointer;*/
+/*    position: absolute;*/
+/*    border: none;*/
+/*    outline: none;*/
+/*}*/
+
+.blog_detail img {
+    width: 75%;
+}
+
+/*屏幕大于1000像素则执行下面css代码。*/
+@media screen and (max-width:1090px){
+    .otherinfo p{
+        display:none;
+    }
+}
+
+/*屏幕大于1000像素则执行下面css代码。*/
+/*@media screen and (max-width:1431px){*/
+/*    #menu_1, #menu_2 {*/
+/*        display:none;*/
+/*    }*/
+/*    #header {*/
+/*        background: rosybrown;*/
+/*    }*/
+/*}*/

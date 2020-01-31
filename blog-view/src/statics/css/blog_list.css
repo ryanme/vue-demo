@@ -1,0 +1,54 @@
+.blog_list {
+    border-radius: 42px;
+    height: 100px;
+    padding: 5px;
+    margin: 30px 0;
+    width: 85%;
+    text-align: left;
+    background-color: #232121;
+    color: white;
+}
+.blog_title {
+    font-size: medium;
+    font-weight: 600;
+}
+
+.otherinfo p{
+    font-weight: 600;
+    font-size: small;
+    float: right;
+    margin: 0;
+    display: inline-block;
+    height: 26px;
+    color: #D8ADAD;
+    width: 15%;
+    text-align: right;
+}
+
+.first_head p{
+    display: inline-block;
+}
+
+.otherinfo p{
+    display:block;
+}
+
+
+.blog_shortcontent {
+    color: #ffebc6;
+    margin-top: 5px;
+    line-height: 26px;
+    font-size: small;
+}
+
+/*屏幕大于1000像素则执行下面css代码。*/
+@media screen and (max-width:1090px){
+    .otherinfo p{
+        display:none;
+    }
+}
+
+.router_a:hover {
+    cursor:pointer;
+    color: rosybrown;
+}

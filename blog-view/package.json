@@ -15,7 +15,7 @@
     "crypto": "^1.0.1",
     "element-ui": "^2.13.0",
     "fibers": "^4.0.2",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "sass-loader": "^8.0.0",
     "showdown": "^1.9.1",
     "vue": "^2.6.10",
